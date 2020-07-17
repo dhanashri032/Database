@@ -1,0 +1,36 @@
+
+Assinment 2
+____________________________________________________________________________________________
+
+1) Which field of the Customers table is the primary key? 
+
+ANS-
+
+Customer number i.e. Cnum is the primary key of the customer table.
+____________________________________________________________________________________________
+
+2) What is the 4th column of the Customers table? 
+ 
+ANS-
+
+RATING is the 4th column of the customer table.
+____________________________________________________________________________________________
+
+3) What is another word for row?  For column? 
+
+ANS-
+
+For Row: Tuple, Entity, Opportumity.
+
+For Column: Attribute, Method.
+____________________________________________________________________________________________
+
+4) Why isn’t it possible to see the first five rows of a table? 
+
+ANS-
+
+When you select from table, you will find row at some order position in output. 
+It's only in case of VARCHAR that the row length may increase or decrease. Hence, 
+it is not possible to view the first five rows of a table.
+____________________________________________________________________________________________
+ 

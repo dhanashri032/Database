@@ -1,0 +1,154 @@
+﻿EXersize 1
+_______________________________________________________________________________________________________________
+1
+create table SEMP
+     (
+		EMPNO CHAR(4),
+		EMPNAME CHAR(20),
+		BASIC FLOAT(9,2),
+		DEPTNO CHAR(2),
+		DEPTHEAD CHAR(4)
+     );
+_______________________________________________________________________________________________________________
+2
+create table SDEPT
+	(
+		DEPTNO CHAR(2),
+		DEPTNAME CHAR(15)
+    );
+_______________________________________________________________________________________________________________
+3 
+insert into sdept
+values('10','Development');
+
+insert into sdept
+values('20','Training');
+_______________________________________________________________________________________________________________
+4
+insert into SEMP
+values('0001','SUNIL',6000,'10',NULL);
+
+insert into SEMP
+values('0002','HIREN',8000,'20',NULL);
+
+insert into SEMP
+values('0003','ALI',4000,'10','0001');
+
+insert into SEMP
+values('0004','GEORGE',6000,NULL,'0002');
+_______________________________________________________________________________________________________________
+SUPPLIER
+
+create table Supplier
+    (
+    `S#` CHAR(10),
+    Sname CHAR(20),
+    Status VARCHAR(25),
+     City VARCHAR(25)
+     );
+	 
+	 
+insert into supplier
+values('S1','Krish','10','London');
+
+insert into supplier
+values('S2','Rishi','20','Paris');
+
+insert into supplier
+values('S3','Nisha','30','Athens');
+_______________________________________________________________________________________________________________
+PARTS
+
+create table Parts
+    (
+    `P#` CHAR(10),
+    Pname CHAR(20),
+    Color VARCHAR(25),
+    Weight VARCHAR(10),
+	City VARCHAR(25)
+     );
+	 
+	 
+insert into parts
+values('P1','Ram','Red','550','London');
+
+insert into parts
+values('P2','Sham','Blue','750','Paris');
+
+insert into parts
+values('P3','Sid','Black','920','Athens');
+_______________________________________________________________________________________________________________
+PROJECT
+
+create table Project
+    (
+    `J#` CHAR(10),
+    Jname CHAR(20),
+	City VARCHAR(25)
+     );
+	 
+	 
+	 
+insert into project
+values('J1','Sam','London');
+
+
+insert into project
+values('J2','Luv','Paris');
+
+insert into project
+values('J3','Kush','Athens');
+_______________________________________________________________________________________________________________
+SUPPLIER-PARTS-PROJECT 
+
+create table SPJ
+    (
+    `S#` CHAR(10),
+	`P#` CHAR(10),
+	`J#` CHAR(10),
+	Qty int(10)
+     );
+	 
+	 
+insert into SPJ
+values('S1','P1','J1','5');
+
+insert into SPJ
+values('S2','P2','J2','8');
+
+insert into SPJ
+values('S3','P3','J3','9');
+_______________________________________________________________________________________________________________
+SELECT queries to do the following:- 
+_______________________________________________________________________________________________________________
+
+5. Display all the data from the S table
+
+select * from supplier;
+_______________________________________________________________________________________________________________
+
+6. Display only the S# and Sname fields from the S table. 
+
+select `S#`, Sname from Supplier;
+_______________________________________________________________________________________________________________
+
+7. Display the PNAME and COLOR from the P table for the CITY=”London”. 
+
+select pname, color from parts where city="London";
+_______________________________________________________________________________________________________________
+
+8. Display all the Suppliers from London. 
+
+select * from supplier where city="London";
+_______________________________________________________________________________________________________________
+
+9. Display all the Suppliers from Paris or Athens. 
+
+select * from supplier where city="paris" oR city="London";
+_______________________________________________________________________________________________________________
+
+10. Display all the Projects in Athens.     
+
+select * from project where city="Athens";
+_______________________________________________________________________________________________________________
+

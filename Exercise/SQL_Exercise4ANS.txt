@@ -1,0 +1,96 @@
+Exercise 3
+______________________________________________________________________________________________________
+
+9. Display the Supplier name and the status (as Ten, Twenty, Thirty, etc.).   
+
+ANS-
+
+select sname,case
+when status=10 then 'TEN'
+when status=20 then 'TWENTY'
+when status=30 then 'THIRTY'
+end status
+from supplier;
+______________________________________________________________________________________________________
+
+10. Display the current day (e.g. Thursday).   
+
+ANS-
+
+select dayname(sysdate()) from dual;
+______________________________________________________________________________________________________
+
+Exercise 4
+______________________________________________________________________________________________________
+
+1. Display the minimum Status in the Supplier table.   
+
+ANS-
+
+select min(status) from supplier;
+______________________________________________________________________________________________________
+
+2. Display the maximum Weight in the Parts table.   
+
+ANS- 
+
+select max(weight) from parts;
+______________________________________________________________________________________________________
+
+3. Display the average Weight of the Parts.  
+
+ANS- 
+
+select avg(weight) from parts;
+______________________________________________________________________________________________________
+
+4. Display the total Quantity sold for part ‘P1’.   
+
+ANS-
+
+select sum(qty) from spj where `p#`='p1';
+______________________________________________________________________________________________________
+
+5. Display the total Quantity sold for each part.
+
+ANS-
+
+ select 'p#', qty from spj;
+______________________________________________________________________________________________________
+
+6. Display the average Quantity sold for each part.     
+
+ANS
+
+select avg(qty) from spj group by `p#`;
+______________________________________________________________________________________________________
+
+7. Display the maximum Quantity sold for each part, provided the maximum Quantity is greater than 800.   
+
+ANS-
+
+select qty from spj where qty>800 group by `p#`;
+______________________________________________________________________________________________________
+
+8. Display the Status and the count of Suppliers with that Status.   
+
+ANS-
+
+select status,count(`s#`) from supplier group by `s#`;
+______________________________________________________________________________________________________
+
+9. Display the count of Projects going on in different cities.   
+
+ANS-
+
+select count(`J#`),city from PROJECT group by city;
+______________________________________________________________________________________________________
+
+10. What is the difference between COUNT(Status) and COUNT(*) ?  
+
+ANS-
+
+COUNT(Status)- it gives the number of status from table.
+
+COUNT(*)- it gives number of rows from table.
+_______________________________________________________________________________________________________

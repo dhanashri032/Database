@@ -1,0 +1,101 @@
+Exercise 6
+________________________________________________________________________________________________________
+
+1. Display all the Suppliers with the same Status as the supplier, ‘CLARK’.     
+
+ANS-
+
+select `s#` from supplier 
+where status=(select status from supplier where sname='CLARK');
+________________________________________________________________________________________________________
+
+2. Display all the Employees in the same department as the employee ‘MILLER’.   
+
+ANS-
+
+select empname from semp
+where deptno=(select deptno from semp where empname='MILLER');
+________________________________________________________________________________________________________
+
+3. Display all the Parts which have more Weight than all the Red parts.   
+
+ANS-
+
+select `p#` from parts 
+where weight >
+(select weight from parts where color='red');
+________________________________________________________________________________________________________
+
+4. Display all the Projects going on in the same city as the project ‘TAPE’. 
+
+ANS-
+
+select `j#` from project 
+where city=
+(select city from project where jname='TAPE');
+________________________________________________________________________________________________________
+
+5. Display all the Parts with Weight less than all the Green parts.   
+
+ANS-
+
+select `p#` from parts 
+where weight <
+(select weight from parts where color='green');
+________________________________________________________________________________________________________
+
+6. Display the name of the Supplier who has sold the maximum Quantity 
+(in one sale).
+
+ANS-
+
+select sname,max(qty) from supplier,spj
+where spj.`s#`=supplier.`s#`
+group by sname
+having max(qty)=
+(select max(qty_t) from 
+(select max(qty) qty_t from supplier,spj
+where spj.`s#`=supplier.`s#`
+group by sname) as tempp);
+_________________________________________________________________________________________________________
+
+7. Display the name of the Employee with the minimum Salary.   
+
+ANS-
+
+select empname from semp 
+where basic = 
+(select min(basic) from  semp);
+________________________________________________________________________________________________________
+
+8. Display the name of the Supplier who has sold the maximum overall Quantity 
+(sum of Sales).   
+
+ANS-
+
+display the sname that is having  the max(sum(qty)).
+SELECT SNAME,SUM(QTY) FROM S,SPJ
+	WHERE SPJ.`S#` = S.`S#`
+	GROUP BY SNAME
+	HAVING SUM(QTY) = 
+	(SELECT MAX(SUM_QTY) FROM
+	(SELECT SUM(QTY) SUM_QTY FROM SPJ
+	 GROUP BY `S#`) AS TEMPP);
+________________________________________________________________________________________________________
+
+9. Display the name of the Department with the maximum number of Employees.   
+
+ANS-
+
+select deptname,count(semp.deptno) 'no. of employee' from
+semp,sdept
+where semp.deptno=sdept.deptno
+group by deptname
+having count(semp.deptno)=
+(select max(dept_no) from 
+(select count(semp.deptno) dept_no from semp,sdept
+where semp.deptno=sdept.deptno
+group by deptname) as tempp);
+________________________________________________________________________________________________________
+
+________________________________________________________________________________________________________

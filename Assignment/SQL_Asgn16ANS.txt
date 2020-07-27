@@ -1,0 +1,32 @@
+Assignment 16
+___________________________________________________________________________________________________________________
+
+1) Write a command that will enable a user to pull orders grouped by date out of the Orders table quickly. 
+
+ANS-
+
+CREATE INDEX order_date on ORDERS(odate);
+___________________________________________________________________________________________________________________
+
+2) If the Orders table has already been created, how can you force the onum field to be unique 
+(assume all current values are unique)? 
+
+ANS-
+
+CREATE UNIQUE INDEX O_NUM ON ORDERS(ONUM);
+___________________________________________________________________________________________________________________
+
+3) Create an index that would permit each salesperson to retrieve his or her orders grouped by date quickly. 
+ 
+ANS-
+
+CREATE INDEX I_DATE ON ORDERS(ODATE);
+___________________________________________________________________________________________________________________
+
+4) Let us assume that each salesperson is to have only one customer of a given rating, and that this is 
+currently the case. Enter a command that enforces it. 
+
+ANS-
+
+create unique index i_rating on customers(rating);
+___________________________________________________________________________________________________________________
